@@ -63,7 +63,7 @@ Resources:
         ImageId: ami-017fecd1353bcc96e
         KeyName: vocakey1
         SecurityGroupIds: #LaunchTemplate requires SG ID. Execute WebServerSecGroup first, then update MyWebAppLaunchTemplate afterward
-          - sg-0ef5456b83b2cd7bf
+          - sg-085931c488cc518f9
         InstanceType: t3.small
         BlockDeviceMappings:
         - DeviceName: "/dev/sdk"
