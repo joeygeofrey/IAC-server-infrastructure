@@ -36,8 +36,8 @@ Resources:
           !Sub "${EnvironmentName}-VPCID"
       SecurityGroupIngress:
       - IpProtocol: tcp
-        FromPort: 8080
-        ToPort: 8080
+        FromPort: 80
+        ToPort: 80
         CidrIp: 0.0.0.0/0
       - IpProtocol: tcp
         FromPort: 22
@@ -61,9 +61,9 @@ Resources:
             cd /var/www/html
             echo "Demo Web Server Up and Running!" > index.html
         ImageId: ami-017fecd1353bcc96e
-        KeyName: vocakey1
+        KeyName: private-server-devops-key
         SecurityGroupIds: #LaunchTemplate requires SG ID. Execute WebServerSecGroup first, then update MyWebAppLaunchTemplate afterward
-          - sg-03229b0ef05ba7f70
+          - sg-0ccd2509923144082
         InstanceType: t3.medium
         BlockDeviceMappings:
         - DeviceName: "/dev/sdk"
@@ -120,7 +120,7 @@ Resources:
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 8
       HealthyThresholdCount: 2
-      Port: 8080
+      Port: 80
       Protocol: HTTP
       UnhealthyThresholdCount: 5
       VpcId:
