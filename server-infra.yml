@@ -62,8 +62,8 @@ Resources:
             echo "Demo Web Server Up and Running!" > index.html
         ImageId: ami-017fecd1353bcc96e
         KeyName: private-server-devops-key
-        SecurityGroupIds: #LaunchTemplate requires SG ID. Execute WebServerSecGroup first, then update MyWebAppLaunchTemplate afterward
-          - sg-0ccd2509923144082
+        SecurityGroupIds: 
+        - !Ref WebServerSecGroup
         InstanceType: t3.medium
         BlockDeviceMappings:
         - DeviceName: "/dev/sdk"
